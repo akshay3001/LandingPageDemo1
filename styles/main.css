@@ -1,0 +1,135 @@
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
+.lp-box {
+  background-color: #005DFF;
+  clip-path: polygon(0 0, 100% 0, 100% 87%, 42% 100%, 0 100%);
+  font-family: 'Montserrat';
+  height: 100%;
+  width: 100%;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 87%, 42% 100%, 0 100%);
+  z-index: -1;
+}
+
+@media (min-width: 840px) {
+  .lp-box {
+    -webkit-clip-path: polygon(0 0, 80% 0, 58% 100%, 0% 100%);
+            clip-path: polygon(0 0, 80% 0, 58% 100%, 0% 100%);
+  }
+}
+
+.p-md {
+  padding: 15px;
+}
+
+.lp-hdr {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (min-width: 840px) {
+  main .main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "left right";
+  }
+}
+
+main .main .card {
+  background-color: #fff;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 1em auto;
+  width: 80%;
+}
+
+@media (min-width: 840px) {
+  main .main .card {
+    grid-area: right;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+  }
+}
+
+main .main .card ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+main .main .card ul li {
+  margin-bottom: 15px;
+}
+
+main .main .card ul li span {
+  background-color: #ccdfff;
+  border-radius: 50%;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+
+main .main .card ul li strong {
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: 5px;
+}
+
+main .main .card-section {
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+@media (min-width: 840px) {
+  main .main .card-section {
+    grid-area: left;
+    text-align: left;
+    margin: 4em 0 0 4em;
+  }
+}
+
+main .main .card-section h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+  margin-top: 0px;
+}
+
+@media (min-width: 840px) {
+  main .main .card-section h2 {
+    font-size: 4.2em;
+    line-height: 0.9em;
+  }
+}
+
+main .main .card-section .para {
+  font-size: 1.4em;
+}
+
+main .main .card-section a {
+  display: block;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+  color: #001333;
+  font-weight: bold;
+  padding: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (min-width: 840px) {
+  main .main .card-section a {
+    display: inline-block;
+  }
+}
+/*# sourceMappingURL=main.css.map */

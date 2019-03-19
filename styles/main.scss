@@ -1,0 +1,177 @@
+// Body, Html
+html, body{
+    height: 100vh;
+    margin: 0;
+}
+
+// Variables
+$card-circle: 30px;
+$desktop-width: 840px;
+
+// Colours:
+$colors: (
+    primary: #005DFF,
+    primary-light: lighten(#005DFF, 40%),
+    primary-dark: darken(#005DFF, 40%),
+    white: #fff,
+    accent: #f6f6f6,
+);
+
+// Paddings
+$paddings: (
+    p-n: 0px,
+    p-sm: 5px,
+    p-md: 10px,
+    p-lg: 15px,
+    p-xl: 25px
+);
+
+// Margins
+$margins: (
+    m-n: 0px,
+    m-sm: 5px,
+    m-md: 10px,
+    m-lg: 15px,
+    m-xl: 25px
+);
+
+// Functions
+// 1. Function for colours
+@function color($color) {
+    @return map-get($colors, $color);
+}
+// 2. Functions for paddings
+@function padding($padding) {
+    @return map-get($map: $paddings, $key: $padding);
+}
+// 2. Functions for margins
+@function margin($margin) {
+    @return map-get($map: $margins, $key: $margin);
+}
+
+// Mixins
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}
+
+// Landing Page prefixed by lp
+.lp-box {
+    background-color: color(primary);
+    clip-path: polygon(0 0, 100% 0, 100% 87%, 42% 100%, 0 100%);
+    font-family: 'Montserrat';
+    height: 100%;
+    width: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 87%, 42% 100%, 0 100%);
+    z-index: -1;
+
+    @include desktop {
+        clip-path: polygon(0 0, 80% 0, 58% 100%, 0% 100%);
+    }
+}
+
+.p-md {
+    padding: 15px;
+}
+
+// Header
+.lp-hdr {
+    color: color(white);
+    text-decoration: none;
+}
+
+// Main
+
+// 1. Card
+main .main{
+    
+    @include desktop {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "left right";
+    }
+
+    .card {
+        background-color: color(white);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        padding: padding(p-md);
+        margin: 1em auto;
+        width: 80%;
+
+        @include desktop {
+            grid-area: right;
+            height: fit-content;
+            align-self: center;
+            margin: 1em;
+        }
+
+        ul {
+            margin: margin(m-n);
+            padding: padding(p-n);
+
+            li {
+                margin-bottom: margin(m-lg);
+
+                span {
+                    background-color: color(primary-light);
+                    border-radius: 50%;
+                    position: absolute;
+                    height: $card-circle;
+                    width: $card-circle;
+                }
+
+                strong {
+                    display: inline-block;
+                    margin-left: max($numbers: 40px);
+                    margin-top: margin(m-sm);
+                }
+            }
+        }
+    }
+
+
+    .card-section {
+        color: color(white);
+        text-align: center;
+        padding: padding(p-md);
+
+        @include desktop {
+            grid-area: left;
+            text-align: left;
+            margin: 4em 0 0 4em;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 3em;
+            margin-top: margin(m-n);
+
+            @include desktop {
+                font-size: 4.2em;
+                line-height: 0.9em;
+            }
+        }
+
+        .para {
+            font-size: 1.4em;
+        }
+
+        a {
+            display: block;
+            background-color: color(accent);
+            border-radius: 15px;
+            color: color(primary-dark);
+            font-weight: bold;
+            padding: 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            @include desktop {
+                display: inline-block;
+            }
+        }
+
+
+    }
+}
